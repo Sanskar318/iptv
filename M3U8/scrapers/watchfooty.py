@@ -17,7 +17,7 @@ TAG = "WATCHFTY"
 
 CACHE_FILE = Cache(TAG, exp=10_800)
 
-BASE_DOMAIN = "watchfooty.su"
+BASE_DOMAIN = "watchfooty.st"
 
 API_URL, BASE_URL = f"https://api.{BASE_DOMAIN}", f"https://www.{BASE_DOMAIN}"
 

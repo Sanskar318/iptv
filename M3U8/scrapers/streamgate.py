@@ -72,13 +72,18 @@ async def process_event(url: str, url_num: int) -> tuple[str | None, str | None]
         re.I,
     )
 
-    if not (match := valid_m3u8.search(ifr_src_data.text)):
-        log.warning(f"URL {url_num}) No source found.")
-        return nones
+    valid_m3u8_2 = re.compile(r"streamUrls?=\s*\[\s*[\"\']([^\"\']+)[\"\']", re.I)
 
-    log.info(f"URL {url_num}) Captured M3U8")
+    if match := valid_m3u8.search(ifr_src_data.text):
+        log.info(f"URL {url_num}) Captured M3U8")
+        return json.loads(f'"{match[4]}"'), ifr_src
 
-    return json.loads(f'"{match[4]}"'), ifr_src
+    elif match := valid_m3u8_2.search(ifr_src_data.text):
+        log.info(f"URL {url_num}) Captured M3U8")
+        return json.loads(f'"{match[1]}"'), ifr_src
+
+    log.warning(f"URL {url_num}) No source found.")
+    return nones
 
 
 async def refresh_api_cache(now: Time) -> list[dict[str, Any]]:
