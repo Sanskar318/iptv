@@ -6,9 +6,13 @@
 [![license](https://img.shields.io/github/license/doms9/iptv?logoColor=86b58c)](https://github.com/doms9/iptv/blob/default/LICENSE)
 ![python](https://img.shields.io/badge/Python-4584b6?logo=python&logoColor=fff)
 
-<h2>Base Log @ 2026-08-24 00:15 UTC</h2>
+<h2>Base Log @ 2026-08-24 08:15 UTC</h2>
 
-<h3>✅ Working Streams: 192<br>❌ Dead Streams: 0</h3>
+<h3>✅ Working Streams: 191<br>❌ Dead Streams: 1</h3>
+<table>
+<tr><th>Channel</th><th>Error (Code)</th></tr>
+<tr><td><a href='https://volder.timst.cfd/main/secure/e66fa866da0a75d46ddcb266cc4f374fb88c82e87de106c29b3dd788eccda84e/1787567466/btsports2-uk.m3u8'>TNT Sports 2</a></td><td>HTTP Error (404)</td></tr>
+</table>
 </div>
 
 ---
