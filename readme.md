@@ -6,12 +6,14 @@
 [![license](https://img.shields.io/github/license/doms9/iptv?logoColor=86b58c)](https://github.com/doms9/iptv/blob/default/LICENSE)
 ![python](https://img.shields.io/badge/Python-4584b6?logo=python&logoColor=fff)
 
-<h2>Base Log @ 2026-08-24 08:15 UTC</h2>
+<h2>Base Log @ 2026-08-24 14:15 UTC</h2>
 
-<h3>✅ Working Streams: 191<br>❌ Dead Streams: 1</h3>
+<h3>✅ Working Streams: 189<br>❌ Dead Streams: 3</h3>
 <table>
 <tr><th>Channel</th><th>Error (Code)</th></tr>
-<tr><td><a href='https://volder.timst.cfd/main/secure/e66fa866da0a75d46ddcb266cc4f374fb88c82e87de106c29b3dd788eccda84e/1787567466/btsports2-uk.m3u8'>TNT Sports 2</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://p9.usnlive.com/stream/msnbc.m3u8'>MS NOW</a></td><td>cURL Error (28)</td></tr>
+<tr><td><a href='http://181.119.108.43:9001/play/a044/index.m3u8'>Telemundo</a></td><td>cURL Error (7)</td></tr>
+<tr><td><a href='https://volder.timst.cfd/main/secure/8cb39ce0b8f30ab08a0e072778954505ddeaeaa46f48b55dbc4270e4a5c06d18/1787589051/btsports2-uk.m3u8'>TNT Sports 2</a></td><td>HTTP Error (404)</td></tr>
 </table>
 </div>
 
