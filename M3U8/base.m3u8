@@ -362,7 +362,7 @@ https://xameleon.phantemlis.top/five/secure/ffced096f60c081b7a15ad699b742b09/178
 https://xameleon.phantemlis.top/five/secure/0c3e25d20bfeea58197ef9c3d7c34e57/1787614249/premium662/index.m3u8
 
 #EXTINF:-1 tvg-chno="94" tvg-id="MeTV.Toons.us2" tvg-name="MeTV Toons" tvg-logo="https://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s159817_dark_360w_270h.png" group-title="TV",MeTV Toons
-http://199.193.59.138:5004/auto/v50.6
+https://i1.ut770.freelocaltv.org/hls/toons-8.8_hls/toons-8.8_master.m3u8
 
 #EXTINF:-1 tvg-chno="95" tvg-id="MGM+.HD.us2" tvg-name="MGM Plus" tvg-logo="https://schedulesdirect-api20141201-logos.s3.dualstack.us-east-1.amazonaws.com/stationLogos/s65669_dark_360w_270h.png" group-title="TV",MGM Plus
 #EXTVLCOPT:http-referrer=https://hamis.romponalis.st/premiumtv/daddy3.php?id=791
