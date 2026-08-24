@@ -6,14 +6,15 @@
 [![license](https://img.shields.io/github/license/doms9/iptv?logoColor=86b58c)](https://github.com/doms9/iptv/blob/default/LICENSE)
 ![python](https://img.shields.io/badge/Python-4584b6?logo=python&logoColor=fff)
 
-<h2>Base Log @ 2026-08-24 14:15 UTC</h2>
+<h2>Base Log @ 2026-08-24 20:15 UTC</h2>
 
-<h3>✅ Working Streams: 189<br>❌ Dead Streams: 3</h3>
+<h3>✅ Working Streams: 188<br>❌ Dead Streams: 4</h3>
 <table>
 <tr><th>Channel</th><th>Error (Code)</th></tr>
-<tr><td><a href='https://p9.usnlive.com/stream/msnbc.m3u8'>MS NOW</a></td><td>cURL Error (28)</td></tr>
-<tr><td><a href='http://181.119.108.43:9001/play/a044/index.m3u8'>Telemundo</a></td><td>cURL Error (7)</td></tr>
-<tr><td><a href='https://volder.timst.cfd/main/secure/8cb39ce0b8f30ab08a0e072778954505ddeaeaa46f48b55dbc4270e4a5c06d18/1787589051/btsports2-uk.m3u8'>TNT Sports 2</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://1nyaler.streamhostingcdn.top/stream/23/index.m3u8'>beIN Sports 1 France</a></td><td>HTTP Error (403)</td></tr>
+<tr><td><a href='http://199.193.59.138:5004/auto/v50.6'>MeTV Toons</a></td><td>HTTP Error (503)</td></tr>
+<tr><td><a href='https://7nyaler.streamhostingcdn.top/stream/5/index.m3u8'>Premier Sports 2</a></td><td>HTTP Error (403)</td></tr>
+<tr><td><a href='https://7nyaler.streamhostingcdn.top/stream/39/index.m3u8'>Sky Sports Football</a></td><td>HTTP Error (403)</td></tr>
 </table>
 </div>
 
