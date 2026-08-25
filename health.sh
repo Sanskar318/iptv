@@ -19,7 +19,7 @@ get_status() {
     local channel="$2"
     local index="$3"
     local total="$4"
-    local referer="${5:-https://google.com}"
+    local referer="$5"
 
     local chnl_info response rc IFS status_code content_type index_width
 
@@ -110,6 +110,8 @@ check_links() {
             name=$(sed -n 's/.*tvg-name="\([^"]*\)".*/\1/p' <<<"$line")
 
             [[ -z $name ]] && name="Channel $channel_num"
+
+            referer="https://google.com"
 
         elif [[ $line == \#EXTVLCOPT:http-referrer=* ]]; then
             referer=${line#*=}
