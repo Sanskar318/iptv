@@ -33,31 +33,36 @@ EPG_URLS = [
 ]
 
 DUMMIES = {
+    "Live.Event.us": leagues.live_img,
+    "WNBA.dummy.us": None,
     **{
-        tvg: leagues.live_img
-        for tvg in [
-            "AUS.Rules.Football.Dummy.us",
-            "Basketball.Dummy.us",
-            "Golf.Dummy.us",
-            "Live.Event.us",
-            "NBA.Basketball.Dummy.us",
-            "NFL.Dummy.us",
-            "NHL.Hockey.Dummy.us",
-            "PPV.EVENTS.Dummy.us",
-            "Racing.Dummy.us",
-            "Rugby.Dummy.us",
-            "Soccer.Dummy.us",
-            "Tennis.Dummy.us",
+        f"{tvg}.Dummy.us": f"https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/{league}.png"
+        for tvg, league in [
+            ("NBA.Basketball", "nba"),
+            ("NFL", "nfl"),
+            ("NHL.Hockey", "nhl"),
+            ("MLB.Baseball", "mlb"),
         ]
     },
     **{
-        tvg: None
+        f"{tvg}.Dummy.us": leagues.live_img
         for tvg in [
-            "Cricket.Dummy.us",
-            "Darts.Dummy.us",
-            "Football.Dummy.us",
-            "MLB.Baseball.Dummy.us",
-            "WNBA.dummy.us",
+            "AUS.Rules.Football",
+            "Basketball",
+            "Golf",
+            "PPV.EVENTS",
+            "Racing",
+            "Rugby",
+            "Soccer",
+            "Tennis",
+        ]
+    },
+    **{
+        f"{tvg}.Dummy.us": None
+        for tvg in [
+            "Cricket",
+            "Darts",
+            "Football",
         ]
     },
 }
@@ -123,6 +128,8 @@ def hijack_id(
 
     if og_channel is not None:
         new_channel = ET.Element(og_channel.tag, {**og_channel.attrib, "id": new})
+        icon = ET.SubElement(new_channel, "icon")
+        icon.set("src", leagues.live_img)
 
         display_name = og_channel.find("display-name")
 
@@ -176,9 +183,13 @@ async def main() -> None:
 
             parsed_tvg_ids.add(channel_id)
 
-            for icon_tag in channel.findall("icon"):
-                if logo := tvg_ids.get(channel_id):
-                    icon_tag.set("src", logo)
+            if logo := tvg_ids.get(channel_id):
+                icon_tag = channel.find("icon")
+
+                if icon_tag is None:
+                    icon_tag = ET.SubElement(channel, "icon")
+
+                icon_tag.set("src", logo)
 
             if (url_tag := channel.find("url")) is not None:
                 channel.remove(url_tag)
