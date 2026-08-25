@@ -6,13 +6,9 @@
 [![license](https://img.shields.io/github/license/doms9/iptv?logoColor=86b58c)](https://github.com/doms9/iptv/blob/default/LICENSE)
 ![python](https://img.shields.io/badge/Python-4584b6?logo=python&logoColor=fff)
 
-<h2>Base Log @ 2026-08-25 08:15 UTC</h2>
+<h2>Base Log @ 2026-08-25 14:15 UTC</h2>
 
-<h3>✅ Working Streams: 191<br>❌ Dead Streams: 1</h3>
-<table>
-<tr><th>Channel</th><th>Error (Code)</th></tr>
-<tr><td><a href='http://41.205.93.154/BBCONE/tracks-v1a1/mono.m3u8'>BBC One</a></td><td>HTTP Error (404)</td></tr>
-</table>
+<h3>✅ Working Streams: 192<br>❌ Dead Streams: 0</h3>
 </div>
 
 ---
