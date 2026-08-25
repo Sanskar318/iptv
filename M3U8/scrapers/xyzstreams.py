@@ -20,7 +20,7 @@ BASE_URL = "https://xyzstreams.st/"
 SPORT_URLS = {
     sport: urljoin(BASE_URL, endpoint)
     for sport, endpoint in {
-        "MLB": "mlb",
+        # "MLB": "mlb",
         "WNBA": "wnba",
         # "NBA",
         # "NHL",
@@ -31,7 +31,7 @@ SPORT_URLS = {
 API_URLS = [
     urljoin("https://site.api.espn.com/apis/site/v2/sports/", f"{sport}/scoreboard")
     for sport in [
-        "baseball/mlb",
+        # "baseball/mlb",
         # "basketball/nba",
         "basketball/wnba",
         "football/nfl",
@@ -84,12 +84,12 @@ async def get_sports_map() -> dict[str, dict[str, dict[str, str]]]:
         return sports_map
 
     replaces = {
-        "MLB": {
-            "CWS": "CHW",
-            # "OAK": "ATH",
-            "AZ": "ARI",
-            "WAS": "WSH",
-        },
+        # "MLB": {
+        #     "CWS": "CHW",
+        #     # "OAK": "ATH",
+        #     "AZ": "ARI",
+        #     "WAS": "WSH",
+        # },
         "WNBA": {
             "GSV": "GS",
             "LVA": "LV",

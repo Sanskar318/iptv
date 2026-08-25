@@ -2175,6 +2175,12 @@
         }
       },
       {
+        "URUGUAY COPA": {
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/2/27/COPA_AUFURUGUAY.png",
+          "aliases": ["COPA AUF URUGUAY", "COPA URUGUAY"]
+        }
+      },
+      {
         "USL CHAMPIONSHIP": {
           "logo": "https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2292.png",
           "aliases": ["UNITED SOCCER LEAGUE CHAMPIONSHIP", "USLC"]
