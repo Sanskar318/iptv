@@ -2183,7 +2183,11 @@
       {
         "USL CUP": {
           "logo": "https://i.gyazo.com/d4b236306f77980094ebd1488138d837.png",
-          "aliases": ["USL CUP SOCCER"]
+          "aliases": [
+            "USL CUP SOCCER",
+            "USL JAGERMEISTER CUP",
+            "USL JÄGERMEISTER CUP"
+          ]
         }
       },
       {
