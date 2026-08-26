@@ -136,6 +136,7 @@ write_readme() {
     local base="https://s.id/d9M3U8"
     local live="https://s.id/d9Live"
     local combined="https://s.id/d9M3U8"
+    local kodi="https://s.id/d9Kod"
     local epg="https://s.id/d9sEPG"
     local commits="https://github.com/doms9/iptv/commits/default"
     local license="https://github.com/doms9/iptv/blob/default/LICENSE"
@@ -178,22 +179,27 @@ write_readme() {
         fi
 
         echo -e "</div>\n\n---"
-        echo "#### Base Channels"
 
+        echo "#### Base Channels"
         # shellcheck disable=SC2016
         printf '```\n%s\n```\n\n' "$base"
-        echo "#### Live Events"
 
+        echo "#### Live Events"
         # shellcheck disable=SC2016
         printf '```\n%s\n```\n\n' "$live"
-        echo "#### Combined (Base Channels + Live Events)"
 
+        echo "#### Combined (Base Channels + Live Events)"
         # shellcheck disable=SC2016
         printf '```\n%s\n```\n\n' "$combined"
-        echo "#### EPG"
 
+        echo "#### Kodi (Base Channels + Live Events)"
+        # shellcheck disable=SC2016
+        printf '```\n%s\n```\n\n' "$kodi"
+
+        echo "#### EPG"
         # shellcheck disable=SC2016
         printf '```\n%s\n```\n\n' "$epg"
+
         echo "---"
         echo "#### Mirrors"
         echo -n "[GitHub](https://github.com/doms9/iptv) | "

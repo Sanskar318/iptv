@@ -2,6 +2,7 @@
 import asyncio
 import re
 from pathlib import Path
+from urllib.parse import quote
 
 from playwright.async_api import async_playwright
 from scrapers import (
@@ -29,16 +30,21 @@ from scrapers.utils import get_logger, network
 
 log = get_logger(Path(__file__).stem)
 
-BASE_FILE = Path(__file__).parent / "base.m3u8"
 
-EVENTS_FILE = Path(__file__).parent / "events.m3u8"
+files = [
+    Path(__file__).parent / f"{file}"
+    for file in (
+        "base.m3u8",
+        "events.m3u8",
+        "TV.m3u8",
+        "kodi.m3u8",
+    )
+]
 
-COMBINED_FILE = Path(__file__).parent / "TV.m3u8"
+BASE_FILE, EVENTS_FILE, COMBINED_FILE, KODI_FILE = files
 
 
 def load_base() -> tuple[list[str], int]:
-    log.info("Fetching base M3U8")
-
     data = BASE_FILE.read_text(encoding="utf-8")
 
     pattern = re.compile(r'tvg-chno="(\d+)"')
@@ -48,10 +54,57 @@ def load_base() -> tuple[list[str], int]:
     return data.splitlines(), last_chnl_num
 
 
+def base_to_kodi() -> list[str]:
+    base_m3u = load_base()[0]
+
+    vlc_to_kodi = {
+        "http-referrer": "Referer",
+        "http-user-agent": "User-Agent",
+        "http-origin": "Origin",
+    }
+
+    parsed_opts = {}
+
+    out = [
+        '#EXTM3U url-tvg="https://raw.githubusercontent.com/doms9/iptv/refs/heads/default/M3U8/TV.xml"\n'
+    ]
+
+    for line in base_m3u:
+        if line.startswith("#EXTINF:-1"):
+            out.append(line)
+
+        if line.startswith("#EXTVLCOPT:"):
+            opt = line[11:]
+
+            key, val = opt.split("=", 1)
+
+            parsed_key = vlc_to_kodi[key]
+
+            parsed_opts[parsed_key] = quote(val)
+
+        if re.search("^https?", line, re.I):
+            url = line
+
+            if parsed_opts:
+                headers = "&".join(f"{k}={v}" for k, v in parsed_opts.items())
+
+                url = f"{url}|{headers}"
+
+            out.append(f"{url}\n")
+
+            parsed_opts = {}
+
+    return out
+
+
 async def main() -> None:
     log.info(f"{'=' * 10} Scraper Started {'=' * 10}")
 
+    log.info("Fetching base M3U8")
+
     base_m3u8, tvg_chno = load_base()
+
+    kodi_base = base_to_kodi()
 
     async with async_playwright() as p:
         try:
@@ -77,7 +130,7 @@ async def main() -> None:
                 asyncio.create_task(pelotalibre.scrape()),
                 asyncio.create_task(streamcenter.scrape()),
                 asyncio.create_task(streamfree.scrape()),
-                # asyncio.create_task(streamgate.scrape()),
+                asyncio.create_task(streamgate.scrape()),
                 asyncio.create_task(streamtp.scrape()),
                 asyncio.create_task(streamxhd.scrape()),
                 asyncio.create_task(webcast.scrape()),
@@ -119,6 +172,8 @@ async def main() -> None:
 
     combined_channels: list[str] = []
 
+    kodi_combined: list[str] = []
+
     for i, (event_name, event_info) in enumerate(
         sorted(additions.items()),
         start=1,
@@ -152,9 +207,15 @@ async def main() -> None:
             source,
         ]
 
+        kodi_block: list[str] = [
+            f"{source}|Referer={quote(refer)}&Origin={quote(refer)}&User-Agent={quote(ua)}"
+        ]
+
         combined_channels.extend(["\n" + extinf_all, *vlc_block])
 
         live_events.extend(["\n" + extinf_live, *vlc_block])
+
+        kodi_combined.extend(["\n" + extinf_all, *kodi_block])
 
     COMBINED_FILE.write_text(
         "\n".join(base_m3u8 + combined_channels),
@@ -170,6 +231,13 @@ async def main() -> None:
     )
 
     log.info(f"Events saved to {EVENTS_FILE.resolve()}")
+
+    KODI_FILE.write_text(
+        "\n".join(kodi_base + kodi_combined) + "\n",
+        encoding="utf-8",
+    )
+
+    log.info(f"Kodi file saved to {KODI_FILE.resolve()}")
 
 
 if __name__ == "__main__":
