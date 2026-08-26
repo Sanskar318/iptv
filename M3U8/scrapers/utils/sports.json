@@ -1160,6 +1160,12 @@
         }
       },
       {
+        "FIFA INTERCONTINENTAL CUP": {
+          "logo": "https://assets.football-logos.cc/logos/tournaments/700x700/fifa-intercontinental-cup--white.2f3d9a5d.png",
+          "aliases": []
+        }
+      },
+      {
         "FIFA WORLD CUP": {
           "logo": "https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/4.png",
           "aliases": [
@@ -1402,6 +1408,7 @@
         "LIGA 1": {
           "logo": "https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/1813.png",
           "aliases": [
+            "COPA DE LA LIGA",
             "LIGA 1 DE FUTBOL PROFESIONAL",
             "LIGA 1 DE FÚTBOL PROFESIONAL",
             "LIGA 1 TE APUESTO",
@@ -2112,7 +2119,8 @@
             "UCL",
             "UCL QUALIFIER",
             "UCL QUALIFIERS",
-            "UCL QUALIFYING"
+            "UCL QUALIFYING",
+            "UEFA WOMEN'S CHAMPIONS LEAGUE QUALIFYING"
           ]
         }
       },
