@@ -54,9 +54,7 @@ def load_base() -> tuple[list[str], int]:
     return data.splitlines(), last_chnl_num
 
 
-def base_to_kodi() -> list[str]:
-    base_m3u = load_base()[0]
-
+def base_to_kodi(base_m3u8: list[str]) -> list[str]:
     vlc_to_kodi = {
         "http-referrer": "Referer",
         "http-user-agent": "User-Agent",
@@ -69,7 +67,7 @@ def base_to_kodi() -> list[str]:
         '#EXTM3U url-tvg="https://raw.githubusercontent.com/doms9/iptv/refs/heads/default/M3U8/TV.xml"\n'
     ]
 
-    for line in base_m3u:
+    for line in base_m3u8:
         if line.startswith("#EXTINF:-1"):
             out.append(line)
 
@@ -104,7 +102,7 @@ async def main() -> None:
 
     base_m3u8, tvg_chno = load_base()
 
-    kodi_base = base_to_kodi()
+    kodi_base = base_to_kodi(base_m3u8)
 
     async with async_playwright() as p:
         try:
