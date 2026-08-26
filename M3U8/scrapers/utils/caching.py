@@ -20,7 +20,7 @@ class Cache:
     def load(
         self,
         per_entry: bool = True,
-        index: int | None = None,
+        ts_index: int | None = None,
     ) -> dict[str, dict[str, str | float]]:
 
         try:
@@ -32,8 +32,8 @@ class Cache:
             return {k: v for k, v in data.items() if self.is_fresh(v)}
 
         ts: float | int = (
-            data[index].get("timestamp", Time.default_8())
-            if index
+            data[ts_index].get("timestamp", Time.default_8())
+            if ts_index
             else data.get("timestamp", Time.default_8())
         )
 

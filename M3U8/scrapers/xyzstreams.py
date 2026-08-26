@@ -132,7 +132,7 @@ async def get_events() -> dict[str, dict[str, str | float]]:
 
     events: dict[str, dict[str, str | float]] = {}
 
-    if not (api_data := API_FILE.load(per_entry=False, index=-1)):
+    if not (api_data := API_FILE.load(per_entry=False, ts_index=-1)):
         log.info("Refreshing API cache")
 
         api_data = await refresh_api_cache(now)

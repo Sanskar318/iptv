@@ -1,6 +1,7 @@
 from collections.abc import KeysView
 from dataclasses import dataclass
 from functools import partial
+from typing import Any
 from urllib.parse import urljoin
 
 from .utils import Cache, Event, Time, get_logger, leagues, network
@@ -53,62 +54,63 @@ async def get_events(cached_keys: KeysView[str]) -> list[DAMIEvent]:
 
     events: list[DAMIEvent] = []
 
-    if not (api_data := API_FILE.load(per_entry=False)):
+    if not (api_data := API_FILE.load(per_entry=False, ts_index=-1)):
         log.info("Refreshing API cache")
 
-        api_data = {"timestamp": now.timestamp()}
+        api_data = [{"timestamp": now.timestamp()}]
 
         if r := await network.request(
-            urljoin(BASE_URL, "papi/api/streams"),
+            urljoin(BASE_URL, "papi/matches/all-today"),
             log=log,
         ):
-            api_data: dict[str] = r.json()
+            api_data: list[dict[str, Any]] = r.json()
+
+            api_data[-1]["timestamp"] = now.timestamp()
 
         API_FILE.write(api_data)
 
     start_dt = now.delta(minutes=-30)
     end_dt = now.delta(minutes=30)
 
-    for stream_group in api_data.get("streams", []):
-        if stream_group["category"] == "24/7-streams":
+    for event in api_data:
+        if not all(
+            values := [
+                event.get(x)
+                for x in (
+                    "title",
+                    "league",
+                    "date",
+                    "id",
+                )
+            ]
+        ):
             continue
 
-        for event in stream_group.get("streams", []):
-            if not all(
-                values := [
-                    event.get(x)
-                    for x in (
-                        "name",
-                        "league",
-                        "starts_at",
-                        "id",
-                    )
-                ]
-            ):
-                continue
+        name, sport, start_ts, stream_id = values
 
-            name, sport, start_ts, stream_id = values
+        if stream_id.lower().startswith("dl-"):
+            continue
 
-            if stream_id.lower().startswith("dl-"):
-                continue
+        elif stream_id.startswith("247") or sport.startswith("24/7"):
+            continue
 
-            event_dt = Time.from_ts(start_ts)
+        event_dt = Time.from_ts(int(f"{start_ts}"[:-3]))
 
-            if f"[{sport}] {name} ({TAG})" in cached_keys:
-                continue
+        if f"[{sport}] {name} ({TAG})" in cached_keys:
+            continue
 
-            elif not start_dt <= event_dt <= end_dt:
-                continue
+        elif not start_dt <= event_dt <= end_dt:
+            continue
 
-            events.append(
-                DAMIEvent(
-                    sport=sport,
-                    name=name,
-                    logo=event.get("poster"),
-                    stream_id=stream_id,
-                    timestamp=event_dt.timestamp(),
-                )
+        events.append(
+            DAMIEvent(
+                sport=sport,
+                name=name,
+                logo=event.get("poster"),
+                stream_id=stream_id,
+                timestamp=event_dt.timestamp(),
             )
+        )
 
     return events
 
