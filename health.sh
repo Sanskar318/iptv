@@ -156,7 +156,7 @@ write_readme() {
         printf "[![license](%s)](%s)\n" "https://img.shields.io/github/license/doms9/iptv?logoColor=86b58c" "$license"
         printf "![python](%s)\n" "https://img.shields.io/badge/Python-4584b6?logo=python&logoColor=fff"
 
-        TZ="UTC" printf "\n<h2>Base Log @ %($datefmt)T</h2>\n" -1
+        TZ="UTC" printf "\n## [Base](M3U8/base.m3u8) Log @ %($datefmt)T\n" -1
 
         printf "\n<h3>"
         printf "%b Working Streams: %d" "\U2705" "$passed"
