@@ -30,14 +30,13 @@ from scrapers.utils import get_logger, network
 
 log = get_logger(Path(__file__).stem)
 
-
 files = [
-    Path(__file__).parent / f"{file}"
+    Path(__file__).parent / f"{file}.m3u8"
     for file in (
-        "base.m3u8",
-        "events.m3u8",
-        "TV.m3u8",
-        "kodi.m3u8",
+        "base",
+        "events",
+        "TV",
+        "kodi",
     )
 ]
 
