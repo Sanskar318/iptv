@@ -6,14 +6,14 @@
 [![license](https://img.shields.io/github/license/doms9/iptv?logoColor=86b58c)](https://github.com/doms9/iptv/blob/default/LICENSE)
 ![python](https://img.shields.io/badge/Python-4584b6?logo=python&logoColor=fff)
 
-<h2>Base Log @ 2026-08-25 20:15 UTC</h2>
+<h2>Base Log @ 2026-08-26 00:15 UTC</h2>
 
 <h3>✅ Working Streams: 190<br>❌ Dead Streams: 3</h3>
 <table>
 <tr><th>Channel</th><th>Error (Code)</th></tr>
-<tr><td><a href='https://xameleon.phantemlis.top/three/secure/fa707472e8dee3bb04cdd5a8bb49c669/1787691650/premium112/index.m3u8'>TSN 2</a></td><td>HTTP Error (404)</td></tr>
-<tr><td><a href='https://xameleon.phantemlis.top/three/secure/ad504df5800039fdc60b388f20358376/1787691650/premium113/index.m3u8'>TSN 3</a></td><td>HTTP Error (404)</td></tr>
-<tr><td><a href='https://xameleon.phantemlis.top/three/secure/6d36c46fdb1bb66371dd29aedcf00856/1787691650/premium114/index.m3u8'>TSN 4</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://xameleon.phantemlis.top/three/secure/37ebdd630b44119d41c9560ade0171a8/1787709668/premium112/index.m3u8'>TSN 2</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://xameleon.phantemlis.top/three/secure/894614240fea0a4ec50d4b018524071f/1787709668/premium113/index.m3u8'>TSN 3</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://xameleon.phantemlis.top/three/secure/7f3fc7c34ab69922447a7989424add0f/1787709668/premium114/index.m3u8'>TSN 4</a></td><td>HTTP Error (404)</td></tr>
 </table>
 </div>
 
