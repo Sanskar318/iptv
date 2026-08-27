@@ -104,6 +104,10 @@ async def process_event(
                     pass
 
         if captured:
+            if "amazonaws" not in captured[0].lower():
+                log.warning(f"URL {url_num}) Unsuitable M3U8 link captured.")
+                return (event_name, *nones)
+
             log.info(f"URL {url_num}) Captured M3U8")
 
             return event_name, ifr_src, captured[0]
