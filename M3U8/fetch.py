@@ -22,6 +22,7 @@ from scrapers import (
     streamgate,
     streamtp,
     streamxhd,
+    timstreams,
     watchfooty,
     webcast,
     xyzstreams,
@@ -130,6 +131,7 @@ async def main() -> None:
                 asyncio.create_task(streamgate.scrape()),
                 asyncio.create_task(streamtp.scrape()),
                 asyncio.create_task(streamxhd.scrape()),
+                asyncio.create_task(timstreams.scrape()),
                 asyncio.create_task(webcast.scrape()),
                 asyncio.create_task(xyzstreams.scrape()),
             ]
@@ -160,6 +162,7 @@ async def main() -> None:
         | streamgate.urls
         | streamtp.urls
         | streamxhd.urls
+        | timstreams.urls
         | watchfooty.urls
         | webcast.urls
         | xyzstreams.urls
