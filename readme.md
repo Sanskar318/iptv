@@ -6,17 +6,17 @@
 [![license](https://img.shields.io/github/license/doms9/iptv?logoColor=86b58c)](https://github.com/doms9/iptv/blob/default/LICENSE)
 ![python](https://img.shields.io/badge/Python-4584b6?logo=python&logoColor=fff)
 
-<h2>Base Log @ 2026-08-26 20:15 UTC</h2>
+## [Base](M3U8/base.m3u8) Log @ 2026-08-27 00:15 UTC
 
 <h3>✅ Working Streams: 187<br>❌ Dead Streams: 6</h3>
 <table>
 <tr><th>Channel</th><th>Error (Code)</th></tr>
-<tr><td><a href='https://xameleon.phantemlis.top/one/secure/41b53d178475d64b06a30d6508a663fc/1787781646/premium975/index.m3u8'>Starz Encore</a></td><td>HTTP Error (404)</td></tr>
-<tr><td><a href='https://xameleon.phantemlis.top/one/secure/c8555a9d4167cb6d6bea8a31a8704a3d/1787781646/premium976/index.m3u8'>Starz Encore Action</a></td><td>HTTP Error (404)</td></tr>
-<tr><td><a href='https://xameleon.phantemlis.top/one/secure/7330cd0ce321b0257a9954883636ade4/1787781646/premium977/index.m3u8'>Starz Encore Black</a></td><td>HTTP Error (404)</td></tr>
-<tr><td><a href='https://xameleon.phantemlis.top/one/secure/398434ed65c5eb80f488b3258395df06/1787781646/premium978/index.m3u8'>Starz Encore Classic</a></td><td>HTTP Error (404)</td></tr>
-<tr><td><a href='https://xameleon.phantemlis.top/one/secure/c29dbdab62098c8e72f83119e6c1eaa7/1787781647/premium979/index.m3u8'>Starz Encore Family</a></td><td>HTTP Error (404)</td></tr>
-<tr><td><a href='https://xameleon.phantemlis.top/one/secure/00e90f3d66bb971327da5b9a570468ec/1787781647/premium980/index.m3u8'>Starz Encore Suspense</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://xameleon.phantemlis.top/one/secure/7e4622b4e6558351cd5e8e4ad2cfda4d/1787799619/premium975/index.m3u8'>Starz Encore</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://xameleon.phantemlis.top/one/secure/ff1bab530382243ebdfd5efd0b9d4aab/1787799619/premium976/index.m3u8'>Starz Encore Action</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://xameleon.phantemlis.top/one/secure/22e3654716dad01fd68d0c0b69bc1d25/1787799619/premium977/index.m3u8'>Starz Encore Black</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://xameleon.phantemlis.top/one/secure/62c2d3585f86f1f0f5a521afe8760800/1787799619/premium978/index.m3u8'>Starz Encore Classic</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://xameleon.phantemlis.top/one/secure/504b3ad7e4829cff7ba60eaa49058d35/1787799620/premium979/index.m3u8'>Starz Encore Family</a></td><td>HTTP Error (404)</td></tr>
+<tr><td><a href='https://xameleon.phantemlis.top/one/secure/26312c8fdfb0085b15c1c53c822cf5c0/1787799620/premium980/index.m3u8'>Starz Encore Suspense</a></td><td>HTTP Error (404)</td></tr>
 </table>
 </div>
 
