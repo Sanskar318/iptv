@@ -116,6 +116,7 @@
           "logo": "https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/mlb.png",
           "aliases": [
             "BASEBALL (MLB)",
+            "MAJOR BASEBALL LEAGUE",
             "MAJOR LEAGUE BASEBALL",
             "MLB BASEBALL",
             "MLB PLAYOFFS"
@@ -235,8 +236,10 @@
         "FIGHTING": {
           "logo": null,
           "aliases": [
+            "BARE KNUCKLES",
             "COMBAT SPORTS",
             "ESPN KNOCKOUT",
+            "MIXED MARTIAL ARTS",
             "MMA",
             "MMA FIGHTING",
             "MMA ONE",
@@ -266,6 +269,8 @@
           "aliases": [
             "AEW",
             "AEW WRESTLING",
+            "PRO WRESTLING",
+            "PROFESSIONAL WRESTLING",
             "TNA WRESTLING",
             "WRESTLING (NXT)",
             "WWE",
@@ -335,7 +340,13 @@
       {
         "RACING": {
           "logo": null,
-          "aliases": ["LA VUELTA A ESPAÑA", "MOTORSPORTS"]
+          "aliases": [
+            "DIRTVISION",
+            "FLORACING",
+            "FORMULA ONE/TWO/TREE",
+            "LA VUELTA A ESPAÑA",
+            "MOTORSPORTS"
+          ]
         }
       }
     ],
@@ -1608,15 +1619,26 @@
           "aliases": [
             "FRANCE - LIGUE 1",
             "FRANCE LIGUE 1",
+            "FRANCE LIGUE ONE",
             "FRENCH LIGUE 1",
-            "LIGUE 1 FRANCE"
+            "FRENCH LIGUE ONE",
+            "LIGUE 1 FRANCE",
+            "LIGUE ONE"
           ]
         }
       },
       {
         "LIGUE 2": {
           "logo": "https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/96.png",
-          "aliases": ["FRANCE LIGUE 2", "FRENCH LIGUE 2"]
+          "aliases": [
+            "FRANCE - LIGUE 2",
+            "FRANCE LIGUE 2",
+            "FRANCE LIGUE TWO",
+            "FRENCH LIGUE 2",
+            "FRENCH LIGUE TWO",
+            "LIGUE 2 FRANCE",
+            "LIGUE TWO"
+          ]
         }
       },
       {
