@@ -30,7 +30,13 @@
       {
         "BASKETBALL": {
           "logo": "https://1000logos.net/wp-content/uploads/2024/04/Basketball-Emoji-1536x864.png",
-          "aliases": ["BALONCESTO", "CEBL", "THE BASKETBALL TOURNAMENT"]
+          "aliases": [
+            "BALONCESTO",
+            "BASKETBALL EUROBASKET QUALIFICATION",
+            "BASKETBALL WORLD CUP QUALIFICATION",
+            "CEBL",
+            "THE BASKETBALL TOURNAMENT"
+          ]
         }
       },
       {
@@ -1040,10 +1046,13 @@
           "aliases": [
             "CARABAO CUP",
             "EFL CUP",
+            "ENGLAND - LEAGUE CUP",
             "ENGLAND LEAGUE CUP",
+            "ENGLISH - LEAGUE CUP",
             "ENGLISH CARABAO CUP",
             "ENGLISH EFL CUP",
             "ENGLISH FOOTBALL LEAGUE CUP",
+            "ENGLISH LEAGUE CUP",
             "LEAGUE CUP"
           ]
         }
