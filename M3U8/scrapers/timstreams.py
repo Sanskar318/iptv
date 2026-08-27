@@ -101,7 +101,7 @@ async def get_events(cached_keys: KeysView[str]) -> list[TIMEvent]:
             for genre in genres
         }
 
-    for event in api_data.get("events", []):
+    for event in api_data.get("events") or []:
         if not all(
             values := [
                 event.get(x)
