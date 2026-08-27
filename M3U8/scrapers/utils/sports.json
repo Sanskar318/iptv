@@ -1121,6 +1121,12 @@
         }
       },
       {
+        "ENGLISH NATIONAL LEAGUE": {
+          "logo": "https://r2.thesportsdb.com/images/media/league/badge/5mq9v01752167973.png",
+          "aliases": ["NATIONAL LEAGUE CUP"]
+        }
+      },
+      {
         "ENGLISH NATIONAL LEAGUE CUP": {
           "logo": "https://gateshead-fc.com/wp-content/uploads/2024/09/nl-cup.png",
           "aliases": ["NATIONAL LEAGUE CUP"]
