@@ -50,6 +50,12 @@
           "logo": "https://www.euroleaguebasketball.net/images/logo-default.png",
           "aliases": ["BASKETBALL EUROLEAGUE", "EUROLEAGUE BASKETBALL"]
         }
+      },
+      {
+        "FIBA": {
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/d/d8/FIBA_Basketball_World_Cup_logo.png",
+          "aliases": ["FIBA BASKETBALL", "FIBA WC", "FIBA WORLD CUP"]
+        }
       }
     ],
     "Cricket.Dummy.us": [
@@ -351,7 +357,8 @@
             "FLORACING",
             "FORMULA ONE/TWO/TREE",
             "LA VUELTA A ESPAÑA",
-            "MOTORSPORTS"
+            "MOTORSPORTS",
+            "WORLD RALLY CHAMPIONSHIP"
           ]
         }
       }
@@ -963,9 +970,16 @@
           "aliases": [
             "CROATIA 1 HNL",
             "CROATIA 1. HNL",
+            "CROATIA PRVA NL",
             "HRVATSKA NOGOMETNA LIGA",
             "SUPERSPORT HNL"
           ]
+        }
+      },
+      {
+        "CYPRUS LEAGUE": {
+          "logo": "https://assets.football-logos.cc/logos/cyprus/1500x1500/cypriot-first-division.5509f999.png",
+          "aliases": ["CYPRIOT FIRST DIVISION", "CYPRUS LEAGUE BY STOIXIMAN"]
         }
       },
       {
@@ -1350,6 +1364,18 @@
         }
       },
       {
+        "KOSOVO SUPERLIGA": {
+          "logo": "https://static.wikia.nocookie.net/logopedia/images/c/c7/Kosovo_FA.png/revision/latest",
+          "aliases": [
+            "ALBI MALL SUPERLEAGUE OF KOSOVO",
+            "ALBI MALL SUPERLIGA E KOSOVËS",
+            "FOOTBALL SUPERLEAGUE OF KOSOVO",
+            "KOSOVO SUPERLIG",
+            "SUPERLIGA E FUTBOLLIT TË KOSOVËS"
+          ]
+        }
+      },
+      {
         "LA LIGA": {
           "logo": "https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/15.png",
           "aliases": [
@@ -1663,6 +1689,16 @@
         }
       },
       {
+        "MACEDONIAN FIRST FOOTBALL LEAGUE": {
+          "logo": "https://macedonianfootball.com/wp-content/uploads/2017/06/fudbal-novo-logo-ffm_7-254x300.png",
+          "aliases": [
+            "1. MFL",
+            "MACEDONIAN FIRST LEAGUE",
+            "NORTH MACEDONIA LIGA 1"
+          ]
+        }
+      },
+      {
         "MALAYSIA SUPER LEAGUE": {
           "logo": "https://static.wikia.nocookie.net/logopedia/images/7/73/Malaysian_Super_League_%282023%29.svg/revision/latest/scale-to-width-down/150",
           "aliases": ["LIGA SUPER MALAYSIA"]
@@ -1937,7 +1973,6 @@
           "logo": "https://assets.football-logos.cc/logos/slovenia/700x700/slovenian-prvaliga--no-text.43825296.png",
           "aliases": [
             "1. SNL",
-            "PRVA LIGA",
             "PRVA LIGA TELEMACH",
             "PRVA SLOVENSKA NOGOMETNA LIGA",
             "PRVALIGA",
