@@ -24,7 +24,7 @@ SPORT_URLS = {
         "WNBA": "wnba",
         # "NBA",
         # "NHL",
-        "NFL": "nflembed",
+        # "NFL": "nflembed",
     }.items()
 }
 
@@ -34,7 +34,7 @@ API_URLS = [
         # "baseball/mlb",
         # "basketball/nba",
         "basketball/wnba",
-        "football/nfl",
+        # "football/nfl",
         # "hockey/nhl",
     ]
 ]
@@ -99,9 +99,9 @@ async def get_sports_map() -> dict[str, dict[str, dict[str, str]]]:
             "PDX": "POR",
             "WAS": "WSH",
         },
-        "NFL": {
-            "WAS": "WSH",
-        },
+        # "NFL": {
+        #     "WAS": "WSH",
+        # },
     }
 
     ptrn = re.compile(r"M3U8_CHANNELS_MAP\s*=\s*\{(.*?)\};", re.S)

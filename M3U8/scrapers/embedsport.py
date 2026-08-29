@@ -112,7 +112,7 @@ async def get_events(cached_keys: KeysView[str]) -> list[EMBDEvent]:
 
         HTML_FILE.write(events)
 
-    start_ts = now.delta(hours=-3).timestamp()
+    start_ts = now.delta(minutes=-30).timestamp()
     end_ts = now.delta(minutes=30).timestamp()
 
     return [
