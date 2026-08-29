@@ -182,6 +182,7 @@
             "NCAAB D",
             "NCAAB D-I",
             "NCAAF",
+            "NCAAF (FBS)",
             "NCAAF D-I",
             "NCAAM",
             "NCAAW",
@@ -374,7 +375,7 @@
       {
         "RUGBY": {
           "logo": null,
-          "aliases": ["RUGBY FRIENDLY", "RUGBY NZ NPC"]
+          "aliases": ["RUGBY FRIENDLY", "RUGBY NZ NPC", "RUGBY UNION FRIENDLY"]
         }
       },
       {
@@ -1322,6 +1323,12 @@
         "ISRAEL TOTO CUP": {
           "logo": "https://upload.wikimedia.org/wikipedia/en/b/b2/Gvia_Hatoto.png",
           "aliases": ["TOTO CUP"]
+        }
+      },
+      {
+        "ISRAELI PREMIER LEAGUE": {
+          "logo": "https://assets.footylogos.com/previews/israeli-premier-league/israeli-premier-league-logo-footylogos-1200.webp",
+          "aliases": ["ISRAEL LIGAT HA'AL", "LIGAT HAAL"]
         }
       },
       {
