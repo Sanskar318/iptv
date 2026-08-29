@@ -34,15 +34,14 @@ async def process_event(url: str, url_num: int) -> str | None:
 
     index_ptrn = re.compile(r'\],(.*)(_.*="")')
 
-    m3u_ptrn = re.compile(r'var\s+signed_url\s+=\s+"(.*)";', re.I)
+    m3u_ptrn = re.compile(r'(var\s?signed_)?url\s?=\s?"(.*)";', re.I)
 
-    z_ptrn = re.compile(r"\%(\d+)")
+    # z_ptrn = re.compile(r"\&(\d+)")
+    # if not (z_mtch := z_ptrn.search(html_data.text)):
+    #     log.warning(f"URL {url_num}) Unable to decipher m3u encryption.")
+    #     return
 
-    if not (z_mtch := z_ptrn.search(html_data.text)):
-        log.warning(f"URL {url_num}) Unable to decipher m3u encryption.")
-        return
-
-    elif not (num_list_mtch := num_list_ptrn.search(html_data.text)):
+    if not (num_list_mtch := num_list_ptrn.search(html_data.text)):
         log.warning(f"URL {url_num}) Unable to decipher m3u encryption.")
         return
 
@@ -54,9 +53,9 @@ async def process_event(url: str, url_num: int) -> str | None:
 
     x, y = (int(i.split("=")[-1]) for i in index_mtch[1].split(",") if i)
 
-    z = int(z_mtch[1])
+    # z = int(z_mtch[1])
 
-    js = "".join(chr(((i ^ x) - y + z) % z) for i in num_list)
+    js = "".join(chr(((i ^ x) - y + 256) & 255) for i in num_list)
 
     if not (m3u_mtch := m3u_ptrn.search(js)):
         log.warning(f"URL {url_num}) No M3U8 source found.")
@@ -64,7 +63,7 @@ async def process_event(url: str, url_num: int) -> str | None:
 
     log.info(f"URL {url_num}) Captured M3U8")
 
-    return json.loads(f'"{m3u_mtch[1]}"')
+    return json.loads(f'"{m3u_mtch[2]}"')
 
 
 async def get_events(cached_keys: KeysView[str]) -> list[TIMEvent]:
