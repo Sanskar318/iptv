@@ -19,6 +19,7 @@ from playwright.async_api import (
     Route,
 )
 
+from .config import Time
 from .logger import get_logger
 
 logger = get_logger(__name__)
@@ -49,10 +50,25 @@ class Network:
 
         self.client = httpx.AsyncClient(**client_params)
 
-        easylist = (Path(__file__).parent / "easylist.txt").read_text(encoding="utf-8")
+    async def setup_adblock(self) -> None:
+        easylist_file = Path(__file__).parent / "easylist.txt"
+
+        easylist = easylist_file.read_text(encoding="utf-8")
+
+        if Time.rn().timestamp() - easylist_file.stat().st_mtime > 172_800:
+            logger.info("Updating EasyList file")
+
+            if r := await self.request(
+                "https://easylist-downloads.adblockplus.org/easylist.txt"
+            ):
+                easylist_file.write_bytes(r.content)
+                easylist = r.text
+
+            else:
+                logger.warning("Unable to update EasyList file")
+
         filter_set = adblock.FilterSet()
         filter_set.add_filter_list(easylist)
-
         self.engine = adblock.Engine(filter_set)
 
     async def request(

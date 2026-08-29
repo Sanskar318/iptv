@@ -104,6 +104,8 @@ async def main() -> None:
 
     async with async_playwright() as p:
         try:
+            await network.setup_adblock()
+
             hdl_brwsr = await network.browser(p)
 
             xtrnl_brwsr = await network.browser(p, external=True)
