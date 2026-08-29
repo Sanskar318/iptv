@@ -99,7 +99,7 @@ check_links() {
     local channel_num=1
     local name=""
 
-    local IFS line
+    local IFS line referer
 
     printf "Checking %d links from %s\n\n" "$total_urls" "$BASE_FILE"
 
