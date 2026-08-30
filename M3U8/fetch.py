@@ -8,7 +8,6 @@ from playwright.async_api import async_playwright
 from scrapers import (
     dami,
     embedhd,
-    embedsport,
     fawa,
     flyembed,
     istreameast,
@@ -119,7 +118,6 @@ async def main() -> None:
 
             httpx_tasks = [
                 asyncio.create_task(dami.scrape()),
-                # asyncio.create_task(embedsport.scrape()),
                 asyncio.create_task(fawa.scrape()),
                 asyncio.create_task(flyembed.scrape()),
                 asyncio.create_task(istreameast.scrape()),
@@ -146,7 +144,6 @@ async def main() -> None:
     additions = (
         dami.urls
         | embedhd.urls
-        | embedsport.urls
         | fawa.urls
         | flyembed.urls
         | istreameast.urls
