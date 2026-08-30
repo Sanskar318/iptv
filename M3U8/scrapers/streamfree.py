@@ -49,27 +49,43 @@ async def process_event(
         log.warning(f"URL {url_num}) Stream is unavailable.")
         return
 
-    if not (
-        available_quals := sorted(
-            (q for q, ok in quality_info.get("qualities", {}).items() if ok),
-            key=lambda q: int(q.rstrip("p")),
-            reverse=True,
-        )
+    elif not (sources := quality_info.get("sources")):
+        log.warning(f"URL {url_num}) No Sources found.")
+        return
+
+    quality_sources = {
+        f"{quality}{source_num}": value
+        for source_num, source_data in sources.items()
+        for quality, value in source_data["qualities"].items()
+    }
+
+    available_quals: list[tuple[str, str]] = sorted(
+        [qual.split("p") for qual, flag in quality_sources.items() if flag],
+        key=lambda x: int(x[-1]),
+    )
+
+    if not available_quals:
+        log.warning(f"URL {url_num}) No available qualities found.")
+        return
+
+    qual, num = f"{available_quals[0][0]}p", available_quals[0][-1]
+
+    num = "" if num == "1" else num
+
+    server_name = "cdn"
+
+    if server_info := await network.request(
+        urljoin(BASE_URL, f"get-stream-key/{stream_key}"),
+        url_num,
+        log=log,
     ):
-        if not (
-            available_quals := sorted(
-                (q for q, ok in quality_info.get("qualities2", {}).items() if ok),
-                key=lambda q: int(q.rstrip("p")),
-                reverse=True,
-            )
-        ):
-            log.warning(f"URL {url_num}) No available qualities found.")
-            return
+        server_name = server_info.json().get("server_name", "cdn")
 
     if not (
         stream_data := await network.request(
-            urljoin(BASE_URL, f"embed/{category}/{stream_key}"),
+            urljoin(BASE_URL, f"embed/{category}/{stream_key}{num}"),
             url_num,
+            params={"quality": qual, "category": category},
             log=log,
         )
     ):
@@ -81,7 +97,7 @@ async def process_event(
         log.warning(f"URL {url_num}) Unable to find stream information.")
         return
 
-    m3u_info: dict[str, dict[str, Any]] = json.loads(match[1])[available_quals[0]]
+    m3u_info: dict[str, dict[str, Any]] = json.loads(match[1])[qual]
 
     query = urlencode(m3u_info)
 
@@ -89,7 +105,7 @@ async def process_event(
 
     return urljoin(
         BASE_URL,
-        f"live/{stream_key}{available_quals[-1]}/index.m3u8?{query}",
+        f"live-{server_name}/{stream_key}{qual}{num}/index.m3u8?{query}",
     )
 
 
@@ -137,7 +153,7 @@ async def get_events(cached_keys: list[str]) -> list[STFEvent]:
 
         event_dt = Time.from_ts(event_time)
 
-        if not start_dt <= event_dt.delta(minutes=30) <= now:
+        if not start_dt <= event_dt <= now:
             continue
 
         events.append(
@@ -192,7 +208,7 @@ async def scrape() -> None:
             entry = {
                 "source": source,
                 "logo": ev.logo or logo,
-                "refer": urljoin(BASE_URL, f"embed/{ev.category}/{ev.stream_key}"),
+                "refer": BASE_URL,
                 "timestamp": ev.timestamp,
                 "tvg-id": tvg_id or "Live.Event.us",
             }
