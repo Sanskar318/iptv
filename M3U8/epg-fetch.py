@@ -18,6 +18,7 @@ EPG_URLS = [
     for EPG_ID in [
         "CA2",
         # "CO1",
+        "DE1",
         "DUMMY_CHANNELS",
         # "ES1",
         "FANDUEL1",
