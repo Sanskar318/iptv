@@ -26,7 +26,7 @@ BASE_URL = "https://streamsgates.io"
 API_URLS = [
     urljoin(BASE_URL, f"data/{sport}.json")
     for sport in [
-        # "cfb",
+        "cfb",
         "mlb",
         "nba",
         "nfl",
