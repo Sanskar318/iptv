@@ -20,9 +20,12 @@ from scrapers import (
     streamgate,
     streamtp,
     streamxhd,
+    thestreamden,
     timstreams,
     watchfooty,
     webcast,
+    xyzstreams,
+    xyztoo,
 )
 from scrapers.utils import get_logger, network
 
@@ -113,6 +116,7 @@ async def main() -> None:
                 asyncio.create_task(embedhd.scrape(hdl_brwsr)),
                 asyncio.create_task(playfast.scrape(hdl_brwsr)),
                 asyncio.create_task(sportspass.scrape(xtrnl_brwsr)),
+                asyncio.create_task(thestreamden.scrape(hdl_brwsr)),
                 asyncio.create_task(watchfooty.scrape(xtrnl_brwsr)),
             ]
 
@@ -130,6 +134,8 @@ async def main() -> None:
                 asyncio.create_task(streamxhd.scrape()),
                 asyncio.create_task(timstreams.scrape()),
                 asyncio.create_task(webcast.scrape()),
+                asyncio.create_task(xyzstreams.scrape()),
+                asyncio.create_task(xyztoo.scrape()),
             ]
 
             await asyncio.gather(*(pw_tasks + httpx_tasks))
@@ -156,9 +162,12 @@ async def main() -> None:
         | streamgate.urls
         | streamtp.urls
         | streamxhd.urls
+        | thestreamden.urls
         | timstreams.urls
         | watchfooty.urls
         | webcast.urls
+        | xyzstreams.urls
+        | xyztoo.urls
     )
 
     live_events: list[str] = []
