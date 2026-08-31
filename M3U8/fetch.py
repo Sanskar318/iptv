@@ -10,6 +10,7 @@ from scrapers import (
     embedhd,
     fawa,
     flyembed,
+    gozo,
     istreameast,
     mainportal,
     pelotalibre,
@@ -20,7 +21,6 @@ from scrapers import (
     streamgate,
     streamtp,
     streamxhd,
-    thestreamden,
     timstreams,
     watchfooty,
     webcast,
@@ -116,7 +116,6 @@ async def main() -> None:
                 asyncio.create_task(embedhd.scrape(hdl_brwsr)),
                 asyncio.create_task(playfast.scrape(hdl_brwsr)),
                 asyncio.create_task(sportspass.scrape(xtrnl_brwsr)),
-                # asyncio.create_task(thestreamden.scrape(hdl_brwsr)),
                 asyncio.create_task(watchfooty.scrape(xtrnl_brwsr)),
             ]
 
@@ -124,6 +123,7 @@ async def main() -> None:
                 asyncio.create_task(dami.scrape()),
                 asyncio.create_task(fawa.scrape()),
                 asyncio.create_task(flyembed.scrape()),
+                asyncio.create_task(gozo.scrape()),
                 asyncio.create_task(istreameast.scrape()),
                 asyncio.create_task(mainportal.scrape()),
                 asyncio.create_task(pelotalibre.scrape()),
@@ -152,6 +152,7 @@ async def main() -> None:
         | embedhd.urls
         | fawa.urls
         | flyembed.urls
+        | gozo.urls
         | istreameast.urls
         | mainportal.urls
         | pelotalibre.urls
@@ -162,7 +163,6 @@ async def main() -> None:
         | streamgate.urls
         | streamtp.urls
         | streamxhd.urls
-        | thestreamden.urls
         | timstreams.urls
         | watchfooty.urls
         | webcast.urls
