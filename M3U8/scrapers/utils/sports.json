@@ -1362,6 +1362,12 @@
         }
       },
       {
+        "KATEGORIA SUPERIORE": {
+          "logo": "https://static.wikia.nocookie.net/the-football-database/images/0/0b/Kategoria_Superiore_Logo.png/revision/latest",
+          "aliases": ["ABISSNET SUPERIORE", "ALBANIA LIGA"]
+        }
+      },
+      {
         "KAZAKHSTAN - PREMIER LEAGUE": {
           "logo": "https://upload.wikimedia.org/wikipedia/fr/c/cc/Kazakhstan_Premier_League_New_Logo.png",
           "aliases": [
@@ -2018,6 +2024,7 @@
             "INTERNATIONAL FRIENDLY",
             "NORTH AMERICA CONCACAF U20 CHAMPIONSHIP",
             "PARTIDO AMISTOSO",
+            "PREMIER LEAGUE 2",
             "U18 EUROPEAN CHAMPIONSHIP",
             "WORLD CLUB FRIENDLY",
             "WORLD CUP QUALIFIERS"

@@ -122,7 +122,7 @@ async def scrape(browser: Browser) -> None:
                     entry = {
                         "source": source,
                         "logo": logo,
-                        "refer": ev.link,
+                        "refer": BASE_URL,
                         "timestamp": now.timestamp(),
                         "tvg-id": tvg_id or "Live.Event.us",
                     }
@@ -130,6 +130,11 @@ async def scrape(browser: Browser) -> None:
                     cached_urls[key] = entry
 
                     if source:
+                        entry["source"] = source.replace(
+                            "/playlist.m3u8",
+                            "/low/mono.m3u8",
+                        )
+
                         valid_count += 1
 
                         urls[key] = entry
