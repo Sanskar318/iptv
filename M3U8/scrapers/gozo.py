@@ -15,9 +15,7 @@ urls: dict[str, dict[str, str | float]] = {}
 
 TAG = "GOZO"
 
-CACHE_FILE = Cache(TAG, exp=10_800)
-
-HTML_FILE = Cache(f"{TAG}-html", exp=28_800)
+CACHE_FILE = Cache(TAG, exp=28_800)
 
 BASE_URL = "https://gozo.st/"
 
@@ -142,9 +140,10 @@ async def get_events(cached_keys: KeysView[str]) -> list[Event]:
 
         sport = "Live Event" if sport == "Sports" else sport
 
-        event_name = " vs ".join(
-            team.text(strip=True) for team in teams_elem.css(".team-name")
-        )
+        if not (teams := teams_elem.css(".team-name")):
+            continue
+
+        event_name = " vs ".join(team.text(strip=True) for team in teams)
 
         if f"[{sport}] {event_name} ({TAG})" in cached_keys:
             continue
@@ -152,13 +151,11 @@ async def get_events(cached_keys: KeysView[str]) -> list[Event]:
         elif not (href := watch_btn_elem.attributes.get("href")):
             continue
 
-        game_name = href.split("?game=")[-1]
-
         events.append(
             Event(
                 sport=sport,
                 name=event_name,
-                link=urljoin(BASE_URL, f"?game={game_name}"),
+                link=urljoin(BASE_URL, href),
             )
         )
 
