@@ -1865,6 +1865,7 @@
             "COPA ROMANIA",
             "CUPA ROMANIEI",
             "CUPA ROMÂNIEI",
+            "ROMANIA CUP",
             "ROMANIAN CUP"
           ]
         }
@@ -1907,6 +1908,12 @@
         }
       },
       {
+        "SAUDI DIVISION 1": {
+          "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Saudi_First_Division_League_Logo.svg/330px-Saudi_First_Division_League_Logo.svg.png",
+          "aliases": ["SAUDI FIRST DIVISION LEAGUE", "YELO LEAGUE"]
+        }
+      },
+      {
         "SAUDI KING CUP": {
           "logo": "https://b.fssta.com/uploads/application/soccer/competition-logos/KingsCup.vresize.350.350.medium.0.png",
           "aliases": [
@@ -1932,6 +1939,7 @@
             "LIGA PROFESIONAL SAUDI",
             "LIGA PROFESIONAL SAUDÍ",
             "ROSHN SAUDI LEAGUE",
+            "SAUDI - PRO LEAGUE",
             "SAUDI ARABIA - PRO LEAGUE",
             "SAUDI ARABIA PRO LEAGUE",
             "SAUDI PREMIER LEAGUE"
