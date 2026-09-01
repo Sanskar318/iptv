@@ -67,7 +67,6 @@ async def process_event(url: str, url_num: int) -> tuple[str | None, str | None]
     nones = None, None
 
     if not (html_data := await network.request(url, log=log)):
-        log.warning(f"URL {url_num}) Failed to load url.")
         return nones
 
     soup = HTMLParser(html_data.content)
@@ -85,7 +84,6 @@ async def process_event(url: str, url_num: int) -> tuple[str | None, str | None]
             log=log,
         )
     ):
-        log.warning(f"URL {url_num}) Failed to load iframe source.")
         return nones
 
     dd_ptrn = re.compile(r'_dd\s?=\s?"(.*)";', re.I)
